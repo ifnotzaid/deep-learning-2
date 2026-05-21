@@ -140,7 +140,7 @@ sequence.
 
 ### 3.7 Regularization
 
-The final training setup uses several regularization techniques:
+The final training setup uses several regularization techniques. We did not apply class-weighted loss or balanced sampling, as a preliminary experiment with inverse-frequency class weighting and label smoothing (ε=0.05) destabilized training on the small validation set. Instead, we rely on:
 
 - **Dropout** in the convolutional/recurrent path and classifier to reduce
   co-adaptation.
@@ -248,6 +248,8 @@ revised before being used in a production-oriented model. Future work should
 try a denoising autoencoder, a smaller reconstruction weight, focal loss, or
 balanced batch sampling.
 
+Class Imbalance. The confusion matrix reveals a severe limitation: the model never predicts the HYP class, which accounts for only ~3% of the filtered dataset. This reflects the broader challenge of class imbalance in PTB-XL. We explored class-weighted cross-entropy with label smoothing (ε=0.05) to address this issue, but the approach destabilized training: validation macro-F1 became highly volatile across epochs, and several ablation variants produced inconsistent results across runs. We attribute this to the small validation set (1,642 records) producing noisy per-class gradients that interacted poorly with the amplified loss signal from rare classes. Standard cross-entropy with checkpoint selection by validation macro-F1 proved more stable in our setting, but at the cost of poor minority-class recall. Future work should investigate focal loss (Lin et al., 2017), balanced batch sampling, or synthetic oversampling (SMOTE) as more robust strategies for handling PTB-XL's skewed distribution.
+
 ### 4.3 Visualizations
 
 **Training curves** show convergence for the full model over 21 epochs before early stopping:
@@ -301,6 +303,8 @@ stable imbalance strategies such as focal loss or balanced batch sampling.
 - Vincent, P., Larochelle, H., Bengio, Y., & Manzagol, P.-A. (2008).
   *Extracting and composing robust features with denoising autoencoders.*
   ICML.
+  - Lin, T.-Y., Goyal, P., Girshick, R., He, K., & Dollár, P. (2017). 
+  *Focal Loss for Dense Object Detection.* ICCV.
 
 ---
 
