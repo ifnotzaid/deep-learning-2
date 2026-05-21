@@ -1,7 +1,7 @@
 # A Multi-Block Deep Architecture for ECG Classification on PTB-XL
 
 **SWE012 - Deep Learning with Python | Final Project**  
-*[Your Name] - May 2026*
+*Distortion - May 2026*
 
 ---
 
