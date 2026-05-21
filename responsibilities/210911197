@@ -1,0 +1,4 @@
+- Built PTB-XL data loading pipeline with caching system
+- Performed learning rate hyperparameter sweep
+- Conducted literature review and compiled References section
+- Contributed to README sections on Dataset and Reproducibility
