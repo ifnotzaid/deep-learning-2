@@ -1,0 +1,5 @@
+- Designed the 5-block ECGNet architecture and implemented core model components
+- Developed training utilities and early stopping mechanism
+- Conducted ablation study experiments and analyzed component contributions
+- Coordinated project timeline and integrated team contributions
+- Contributed to README sections on Methods and Results
