@@ -248,6 +248,20 @@ revised before being used in a production-oriented model. Future work should
 try a denoising autoencoder, a smaller reconstruction weight, focal loss, or
 balanced batch sampling.
 
+### 4.3 Visualizations
+
+**Training curves** show convergence for the full model over 21 epochs before early stopping:
+
+![Training curves](figures/training_curves.png)
+
+**Ablation comparison** visualizes the relative contribution of each block:
+
+![Ablation bar chart](figures/ablation_comparison.png)
+
+**Confusion matrix** on the test set shows per-class performance:
+
+![Confusion matrix](figures/confusion_matrix.png)
+
 ---
 
 ## 5. Conclusion
