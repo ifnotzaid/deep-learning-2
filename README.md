@@ -334,18 +334,3 @@ validation: 1642
 test: 1652
 input shape: (12, 1000)
 ```
-
-Recommended repository contents:
-
-```text
-README.md
-notebook.ipynb
-ecg_net.py
-data.py
-train.py
-ablation.py
-requirements.txt
-results.csv
-tuning.csv
-figures/
-```
